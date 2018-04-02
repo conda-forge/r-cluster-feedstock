@@ -1,4 +1,4 @@
-{% set version = '2.0.6' %}
+{% set version = "2.0.7" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/cluster_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
-  sha256: f424b87f10595ed358b1ac80471b520ab9c767a4d203663c25b177c8ce5f8ffc
+  sha256: 85bcac15f96c74c7171e705a2795610e2256640ef39195d2301ce6b2b585c259
 
 build:
   number: 0
