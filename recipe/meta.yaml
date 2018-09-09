@@ -1,4 +1,4 @@
-{% set version = '2.0.6' %}
+{% set version = '2.0.7-1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -10,13 +10,13 @@ package:
 source:
   fn: cluster_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/cluster_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
-  sha256: f424b87f10595ed358b1ac80471b520ab9c767a4d203663c25b177c8ce5f8ffc
+    - {{ cran_mirror }}/src/contrib/cluster_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
+  sha256: b10141090cf3c2b62260611a0ea822eb2f7bab9f4fd656c48bdc12b65c5c3dbf
 
 build:
+  merge_build_host: True  # [win]
   number: 0
-  skip: true  # [win32]
 
   rpaths:
     - lib/R/lib/
@@ -24,17 +24,25 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('fortran') }}  # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
+  host:
     - r-base
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
 
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('cluster')"  # [not win]
+    - $R -e "library('cluster')"           # [not win]
     - "\"%R%\" -e \"library('cluster')\""  # [win]
 
 about:
@@ -44,8 +52,14 @@ about:
     Struyf and Mia Hubert, based on Kaufman and Rousseeuw (1990) "Finding Groups in
     Data".
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
