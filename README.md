@@ -1,7 +1,7 @@
 About r-cluster
 ===============
 
-Home: https://CRAN.R-project.org/package=cluster
+Home: https://svn.r-project.org/R-packages/trunk/cluster
 
 Package license: GPL (>= 2)
 
@@ -156,10 +156,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@bgruening](https://github.com/bgruening/)
-* [@cbrueffer](https://github.com/cbrueffer/)
-* [@daler](https://github.com/daler/)
-* [@dbast](https://github.com/dbast/)
-* [@jdblischak](https://github.com/jdblischak/)
-* [@johanneskoester](https://github.com/johanneskoester/)
+* [@conda-forge/r](https://github.com/conda-forge/r/)
 
