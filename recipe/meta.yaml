@@ -43,7 +43,7 @@ test:
 
 about:
   home: https://svn.r-project.org/R-packages/trunk/cluster
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Methods for Cluster analysis.  Much extended the original from Peter Rousseeuw, Anja
     Struyf and Mia Hubert, based on Kaufman and Rousseeuw (1990) "Finding Groups in
     Data".
