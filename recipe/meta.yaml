@@ -1,4 +1,4 @@
-{% set version = "2.1.1" %}
+{% set version = "2.1.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cluster_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
-  sha256: bdb8c709ec9b84922e185f68e1e817a83dfb130b2ef8c4beaee19ce382358063
+  sha256: 5c8aa760fb6dda4fcfe6196e561ffcd2dc12b1a6c7659cb90be2cde747311499
 
 build:
   merge_build_host: true  # [win]
@@ -47,7 +47,8 @@ about:
   license: GPL-2.0-or-later
   summary: Methods for Cluster analysis.  Much extended the original from Peter Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw (1990) "Finding Groups in Data".
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
