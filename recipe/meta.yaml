@@ -1,4 +1,4 @@
-{% set version = "2.1.4" %}
+{% set version = "2.1.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cluster_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
-  sha256: c6f10ceca29a176ba833f24ebf71fd451629052c2338398ba286df5689d6f5b6
+  sha256: 7bd9a3c586bb7cc8ea285d5e48a5106364be7cbf97413a185402deef9bc40c91
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
