@@ -1,4 +1,4 @@
-{% set version = "2.1.8" %}
+{% set version = "2.1.8.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cluster_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cluster/cluster_{{ version }}.tar.gz
-  sha256: c32a462e34694c99d58da953efa74882b5427f8c5db7cb226ae15c54ce6060ca
+  sha256: 4b95b78e09b17ddca72edc0bb180c753c004ed2f61c3eb12e0451ac77f441e57
 
 build:
   number: 0
